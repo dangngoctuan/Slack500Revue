@@ -38,7 +38,7 @@ module Slack500Revue
   mattr_accessor :webhook_url
   @@webhook_url = nil
 
-  def self.post (request, exception, params = {})
+  def self.post (request, exception, env=nil, params = {})
     url = self.webhook_url
     begin
       uri = URI.parse(url)
@@ -82,8 +82,9 @@ module Slack500Revue
         end
       end
     end
-
-    text += "#{bullet}*Body*\n#{body}\n\n" unless body.nil?
+    if env.blank?
+      text += "#{bullet}*Body*\n#{body}\n\n" unless body.nil?
+    end
     text += "#{bullet}*Backtrace*\n#{exception.backtrace.map {|s| "`#{s.gsub('`', '').gsub("'", '').gsub(Rails.root.to_s, '')}`"}.join("\n")}"
     text = text.force_encoding('UTF-8')
     default_params = {

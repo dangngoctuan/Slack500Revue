@@ -6,12 +6,12 @@ require "slack_500_revue/version"
 Gem::Specification.new do |spec|
   spec.name          = "slack_500_revue"
   spec.version       = Slack500Revue::VERSION
-  spec.authors       = ["Kazuo Matsunaga"]
-  spec.email         = ["getlasterror@gmail.com"]
+  spec.authors       = ["Tuan Dang"]
+  spec.email         = ["dangtuan030690@gmail.com"]
 
   spec.summary       = %q{Post Rails Exceptions to your Slack channel.}
   spec.description   = %q{Slack500Revue is a gem that notifies exceptions raised by Rails to your Slack channel using incomming WebHooks URL.}
-  spec.homepage      = "https://github.com/kazuomatz/Slack500Revue"
+  spec.homepage      = "https://github.com/dangngoctuan/Slack500Revue"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
