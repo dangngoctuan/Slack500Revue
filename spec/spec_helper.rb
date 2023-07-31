@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "slack_500"
+require "slack_500_revue"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

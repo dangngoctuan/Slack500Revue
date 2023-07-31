@@ -1,6 +1,6 @@
-# Slack500
+# Slack500Revue
 
-Slack500 is a gem that notifies exceptions raised by Rails to your Slack channel using incomming WebHooks URL.
+Slack500Revue is a gem that notifies exceptions raised by Rails to your Slack channel using incomming WebHooks URL.
 
 The following items are displayed in the Slack message.
 
@@ -21,7 +21,7 @@ The following items are displayed in the Slack message.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'slack_500'
+gem 'slack_500_revue'
 ```
 
 And then execute:
@@ -30,18 +30,18 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install slack_500
+    $ gem install slack_500_revue
 
 Execute rake task to create configuration file.
 
-    $ rake slack_500:config
+    $ rake slack_500_revue:config
 
 
-and edit "/config/initializers/slack_500.rb"
+and edit "/config/initializers/slack_500_revue.rb"
 
 ```
-require 'slack_500'
-Slack500.setup do |config|
+require 'slack_500_revue'
+Slack500Revue.setup do |config|
     # report pretext of slack message
     config.pretext = 'Slack Report Title'
 
@@ -75,7 +75,7 @@ class ApplicationController < ActionController::Base
   def rescue_500(exception=nil)
 
     # Report Exception to Slack
-    Slack500.post(request,exception)
+    Slack500Revue.post(request,exception)
 
     render 'error/500', status: :internal_server_error, layout: 'application'
     end
@@ -88,7 +88,7 @@ end
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kazuomatz/slack_500. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kazuomatz/slack_500_revue. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -96,4 +96,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Slack500 projects codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/slack_500/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Slack500Revue projects codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/slack_500_revue/blob/master/CODE_OF_CONDUCT.md).

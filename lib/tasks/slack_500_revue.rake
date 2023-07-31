@@ -1,15 +1,15 @@
-namespace :slack_500 do
-  desc 'configuration slack_500'
+namespace :slack_500_revue do
+  desc 'configuration slack_500_revue'
   task :config do
-    file = File.join(Rails.root,'config','initializers','slack_500.rb')
+    file = File.join(Rails.root,'config','initializers','slack_500_revue.rb')
     if File.exists?(file)
       puts "#{file} esxits. overwrite? (y/n)"
       s = STDIN.getc
       exit unless s[0].downcase == 'y'
     end
     File.open(file,'w') do |file|
-      file.puts("require 'slack_500'")
-      file.puts("\nSlack500.setup do |config|")
+      file.puts("require 'slack_500_revue'")
+      file.puts("\nSlack500Revue.setup do |config|")
 
       file.puts("\n    # report pretext of slack message")
       file.puts("    config.pretext = 'Slack Report Title'")
@@ -29,6 +29,6 @@ namespace :slack_500 do
 
       file.puts("\nend")
     end
-    puts "Slack500:: you need edit #{file}."
+    puts "Slack500Revue:: you need edit #{file}."
   end
 end
